@@ -11,3 +11,7 @@ class Tier(models.Model):
     name = models.CharField(max_length=8)
     full_name = models.CharField(max_length=32)
     level = models.PositiveIntegerField(default=0)
+
+
+    def __str__(self) -> str:
+        return f"[{self.name}] {self.full_name}"

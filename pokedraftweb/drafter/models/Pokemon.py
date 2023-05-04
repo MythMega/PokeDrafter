@@ -13,3 +13,9 @@ class Pokemon(models.Model):
     form = models.CharField(max_length=23, null=True, blank=True, default=None)
     sprite = models.ImageField(upload_to="drafter/static/drafter/media/img/poke_pic/", null=True, blank=True)
     tier = models.ForeignKey(Tier, on_delete=models.CASCADE)
+    numero = models.IntegerField()
+
+    def __str__(self) -> str:
+        result = f"[{self.tier}] - {self.numero} {self.name}"
+        if self.form is not None:
+            result += f"({self.form})"

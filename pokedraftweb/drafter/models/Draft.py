@@ -13,3 +13,7 @@ class Draft(models.Model):
     pokemons = models.ManyToManyField(Pokemon, blank=True, null=True)
     users = models.ManyToManyField(User, blank=True, null=True)
     tier = models.ForeignKey(Tier, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return f"{self.tier.name} • {self.users[0].name} VS {self.users[1].name}"
+        
