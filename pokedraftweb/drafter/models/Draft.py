@@ -5,9 +5,9 @@ from django.utils.timezone import now
 from datetime import date as d, datetime as dt 
 import random
 from PIL import Image
-from .Pokemons import Pokemon
-from .Users import User
-from .Tiers import Tier
+from .Pokemon import Pokemon
+from .User import User
+from .Tier import Tier
 
 class Draft(models.Model):
     pokemons = models.ManyToManyField(Pokemon, blank=True, null=True)

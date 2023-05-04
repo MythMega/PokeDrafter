@@ -5,7 +5,7 @@ from django.utils.timezone import now
 from datetime import date as d, datetime as dt 
 import random
 from PIL import Image
-from .Pokemons import Pokemon
+from .Pokemon import Pokemon
 
 class Set(models.Model):
     custom_name = models.CharField(max_length=24)
@@ -56,5 +56,5 @@ class Set(models.Model):
         result += f"{self.nature} Nature\n"
         result += f"IVs: {self.iv_Hp} / {self.iv_Atk} / {self.iv_Def} / {self.iv_SpA} / {self.iv_SpD} / {self.iv_Spe}\n"
         result += f"- {self.move_a}\n- {self.move_b}\n- {self.move_c}\n- {self.move_d}\n"
-        
+
         return result

@@ -5,7 +5,7 @@ from django.utils.timezone import now
 from datetime import date as d, datetime as dt 
 import random
 from PIL import Image
-from .Tiers import Tier
+from .Tier import Tier
 
 
 class Pokemon(models.Model):
