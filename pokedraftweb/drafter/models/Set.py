@@ -32,6 +32,8 @@ class Set(models.Model):
     iv_SpD = models.IntegerField(default=31)
     iv_Spe = models.IntegerField(default=31)
 
+    def __str__(self) -> str:
+        return f"{self.poke} {self.nature} {self.item}"
 
     def generate_set(self) -> str:
         #exemple :
