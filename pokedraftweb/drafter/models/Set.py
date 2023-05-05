@@ -60,3 +60,24 @@ class Set(models.Model):
         result += f"- {self.move_a}\n- {self.move_b}\n- {self.move_c}\n- {self.move_d}\n"
 
         return result
+    
+
+    def checkEV(self) -> dict:
+        """
+        rules:
+        Ev should be individualy less than 252
+        total Evs shouldn't be more than 510
+        return error code in dict
+        checkEv()[code] = 0 / 1 / 2
+        checkEv()[lbl] = "detail about error"
+        0 : "everything's fine"
+        1 : "error: {Ev with problem} is more than 252 !"
+        2 : "error: Ev's sum cannot be more than 510 !"
+        """
+        Evs = [self.ev_Atk, self.ev_Def, self.ev_SpA, self.ev_SpD, self.ev_Hp, self.ev_Spe]
+        sum = 0
+        for i in Evs:
+            sum+=i
+            if i>252: return {"code": 1, "lbl": "error: {Ev with problem} is more than 252 !"}
+        if sum > 510: return {"code": 2, "lbl": "error: {Ev with problem} is more than 252 !"}
+        else: return {"code": 0, "lbl": "error: {Ev with problem} is more than 252 !"}
